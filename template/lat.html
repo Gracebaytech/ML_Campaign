@@ -1,0 +1,135 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Deposit Term Marketing Campaign</title>
+	<link rel stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+	<header>
+		<h1>Deposit Term Marketing Campaign</h1>
+	</header>
+    <main>
+        <form action="{{ url_for('predict') }}" method="POST">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+    
+            <label for="job">Job:</label>
+            <select id="job" name="job" required>
+                <option value="" selected disabled>Select Job</option>
+                <option value="admin">Admin</option>
+                <option value="blue-collar">Blue-Collar</option>
+                <option value="entrepreneur">Entrepreneur</option>
+                <option value="housemaid">Housemaid</option>
+                <option value="management">Management</option>
+                <option value="retired">Retired</option>
+                <option value="self-employed">Self-Employed</option>
+                <option value="services">Services</option>
+                <option value="student">Student</option>
+                <option value="technician">Technician</option>
+                <option value="unemployed">Unemployed</option>
+            </select>
+    
+            <label for="marital">Marital Status:</label>
+            <select id="marital" name="marital" required>
+                <option value="" selected disabled>Select Marital Status</option>
+                <option value="divorced">Divorced</option>
+                <option value="married">Married</option>
+                <option value="single">Single</option>
+            </select>
+    
+            <label for="education">Education:</label>
+            <select id="education" name="education" required>
+                <option value="" selected disabled>Select Education</option>
+                <option value="basic.4y">Basic 4 Years</option>
+                <option value="basic.6y">Basic 6 Years</option>
+                <option value="basic.9y">Basic 9 Years</option>
+                <option value="high.school">High School</option>
+                <option value="illiterate">Illiterate</option>
+                <option value="professional.course">Professional Course</option>
+                <option value="university.degree">University Degree</option>
+            </select>
+    
+            <label for="default">Has Credit in Default:</label>
+            <select id="default" name="default" required>
+                <option value="" selected disabled>Select Answer</option>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+    
+            <label for="housing">Has Housing Loan:</label>
+            <select id="housing" name="housing" required>
+                <option value="" selected disabled>Select Answer</option>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+    
+            <label for="loan">Has Personal Loan:</label>
+            <select id="loan" name="loan" required>
+                <option value="" selected disabled>Select Answer</option>
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+    
+            <label for="contact">Contact Communication Type:</label>
+            <select id="contact" name="contact" required>
+                <option value="" selected disabled>Select Communication Type</option>
+                <option value="cellular">Cellular</option>
+                <option value="telephone">Telephone</option>
+            </select>
+            <label for="month">Last Contact Month:</label>
+            <select id="month" name="month" required>
+                <option value="" selected disabled>Select Month</option>
+                <option value="jan">January</option>
+                <option value="feb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">July</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+            </select>   
+            <label for="day">Last Contact Day:</label>
+            <input type="number" id="day" name="day" required>
+    
+            <label for="duration">Last Contact Duration (Seconds):</label>
+            <input type="number" id="duration" name="duration" required>
+    
+            <label for="campaign">Number of Contacts Performed During this Campaign:</label>
+            <input type="number" id="campaign" name="campaign" required>
+    
+            <label for="pdays">Number of Days that Passed by After the Client Was Last Contacted from a Previous Campaign:</label>
+            <input type="number" id="pdays" name="pdays" required>
+    
+            <label for="previous">Number of Contacts Performed Before this Campaign and for this Client:</label>
+            <input type="number" id="previous" name="previous" required>
+    
+            <label for="poutcome">Outcome of the Previous Marketing Campaign:</label>
+            <select id="poutcome" name="poutcome" required>
+                <option value="" selected disabled>Select Outcome</option>
+                <option value="failure">Failure</option>
+                <option value="nonexistent">Nonexistent</option>
+                <option value="success">Success</option>
+            </select>
+    
+            <button type="submit">Predict</button>
+        </form>
+    
+        {% if prediction is not None %}
+        <div class="prediction">
+            <h2>Prediction:</h2>
+            <p>{{ prediction }}</p>
+        </div>
+        {% endif %}
+    </main>
+    
+    <footer>
+        <p>Deposit Term Marketing Campaign &copy; 2023</p>
+    </footer>
+</body>
+</html>     
